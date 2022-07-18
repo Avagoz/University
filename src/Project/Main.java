@@ -393,16 +393,7 @@ public class Main {
                         switch (otvetS) {
                             case "Info":
                                 groups.forEach(System.out::println);
-                                for (int z = 0; z < groups.size(); z++) {
-                                    if (groups.get(z).getStud().size() > 1 && groups.get(z).getStud().size() < 5) {
-                                        System.out.println("В группе " + groups.get(z).getStud().size() + " Ученика");
-                                    } else if (groups.get(z).getStud().size() == 1) {
-                                        System.out.println("В группе " + groups.get(z).getStud().size() + " Ученик");
-                                    } else {
-                                        System.out.println("В группе " + groups.get(z).getStud().size() + " Учеников");
-                                    }
-
-                                }
+                                met.forEach(System.out::println);
                                 break;
                             case "Sort":
                                 System.out.println("Для того, чтобы отсортировать персонал, введите Personal\n" +
