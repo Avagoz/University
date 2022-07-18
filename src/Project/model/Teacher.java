@@ -1,6 +1,9 @@
 package Project.model;
 
 
+import Project.base.Address;
+import Project.base.Personal;
+
 public class Teacher extends Personal {
 	
 	
@@ -13,6 +16,7 @@ public class Teacher extends Personal {
 		super.surname=surname;
 		super.gender=gender;
 		super.age=age;
+//		this.index=getIndex();
 		super.payday=lesson*45;
 		super.address=new Address("...", "...", "...", 0);
 	}
@@ -105,10 +109,13 @@ public class Teacher extends Personal {
 //							"\n\nPayday: " + getPayday() + " BYN\n"+
 //							"\n"+ address.toString()+"\n");
 //	}
+
+
+
 	@Override
 	public String toString() {
 		return "\n----------------------" +
-				"\nTeacher's information" +
+				"\nTeacher information"+
 				"\n----------------------" +
 				"\nName:" + getName() +
 				"\nSurname: " + getSurname() +

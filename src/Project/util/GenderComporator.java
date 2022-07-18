@@ -1,6 +1,6 @@
 package Project.util;
 
-import Project.model.People;
+import Project.base.People;
 
 import java.util.Comparator;
 

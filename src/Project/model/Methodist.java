@@ -1,25 +1,28 @@
 package Project.model;
 
+import Project.base.Address;
+import Project.base.Personal;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Metodist extends Personal {
+public class Methodist extends Personal {
     private List<Teacher> teachers;
 
 
 
 
-    private int payday;
-    public Metodist(){
+
+    public Methodist(){
 
     }
 
-    public Metodist(String name, String surname, String gender, int age, int payday,Address address){
+    public Methodist(String name, String surname, String gender, int age, int payday, Address address){
         super.name=name;
         super.surname=surname;
         super.gender=gender;
         super.age=age;
-        this.payday=payday;
+        super.payday=payday;
         super.address=address;
         this.teachers=new ArrayList<>();
 
@@ -117,7 +120,7 @@ public class Metodist extends Personal {
     public String toString() {
 
         return "\n----------------------" +
-                "\nMetodis information" +
+                "\nMetodist information" +
                 "\n----------------------" +
                 "\nName:" + getName() +
                 "\nSurname: " + getSurname() +

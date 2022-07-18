@@ -1,6 +1,6 @@
 package Project.util;
 
-import Project.model.People;
+import Project.base.People;
 
 import java.util.Comparator;
 
@@ -14,7 +14,7 @@ public class SurnameComporator implements Comparator<People> {
                 }
                 return o1.getAge() - o2.getAge();
             }
-            return o1.getSurname().compareTo(o2.getSurname());
+            return o1.getName().compareTo(o2.getName());
         }
         return o1.getSurname().compareTo(o2.getSurname());
     }

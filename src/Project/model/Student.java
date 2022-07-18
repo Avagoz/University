@@ -1,6 +1,12 @@
 package Project.model;
 
+import Project.base.Address;
+import Project.base.People;
+
 public class Student extends People {
+    public Student(){
+
+    }
 
     public Student(String name, String surname,String gender, int age) {
         super.name = name;

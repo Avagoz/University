@@ -1,4 +1,6 @@
-package Project.model;
+package Project.base;
+
+import Project.base.Address;
 
 public abstract class People {
     protected String name;
