@@ -11,13 +11,13 @@ public class Teacher extends Personal {
 
 
 
-	public Teacher(String name, String surname, String gender, int age, int lesson){
+	public Teacher(String name, String surname, String gender, int age, int hour){
 		super.name=name;
 		super.surname=surname;
 		super.gender=gender;
 		super.age=age;
 //		this.index=getIndex();
-		super.payday=lesson*45;
+		super.payday=hour*15;
 		super.address=new Address("...", "...", "...", 0);
 	}
 

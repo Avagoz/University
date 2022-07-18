@@ -41,11 +41,11 @@ public class Main {
         met.add(new Methodist(" ", " ", " ", 0, 0, new Address("...", "...", "...", 0)));
 
         met.get(0).setTeachers(new ArrayList<>());
-        met.get(0).getTeachers().add(new Teacher("Olya", "Teach1", "F", 59, 5));
+        met.get(0).getTeachers().add(new Teacher("Olya", "Teach1", "F", 59, 150));
         met.get(met.size() - 1).getTeachers().get(met.get(met.size() - 1).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
-        met.get(0).getTeachers().add(new Teacher("Galya", "Teach2", "F", 19, 50));
+        met.get(0).getTeachers().add(new Teacher("Galya", "Teach2", "F", 19, 225));
         met.get(met.size() - 1).getTeachers().get(met.get(met.size() - 1).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
-        met.get(0).getTeachers().add(new Teacher("Albert", "Teach3", "M", 68, 15));
+        met.get(0).getTeachers().add(new Teacher("Albert", "Teach3", "M", 68, 180));
         met.get(met.size() - 1).getTeachers().get(met.get(met.size() - 1).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
 
         ToMethodist<Methodist, Teacher> metConvert = (teacher) -> new Methodist(teacher.getName(), teacher.getSurname(),
