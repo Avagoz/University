@@ -1,13 +1,13 @@
-package Project.model;
+package Project.service;
 
 import Project.base.Address;
+import Project.model.Methodist;
+import Project.model.Teacher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TeacherTest {
     List<Methodist> met;
