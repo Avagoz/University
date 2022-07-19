@@ -79,6 +79,7 @@ public class Teacher extends Personal {
 		if(age>=18&& age<80) {
 			super.age = age;
 		} else {
+			super.age = 0;
 			System.out.println("!!! Invalid Age !!!");
 		}
 	}
@@ -87,13 +88,13 @@ public class Teacher extends Personal {
 		return payday;
 	}
 	@Override
-	public void  setPayday(int lesson) {
+	public void  setPayday(int hour) {
 		
-		if (lesson<0) {
+		if (hour<0) {
 			this.payday = 0;
-			System.out.println("Invalid Lessons");
+			System.out.println("Invalid hours");
 		} else { 
-		this.payday = 45*lesson; //Расчет Зарплаты
+		this.payday = 15*hour; //Расчет Зарплаты
 				}
 		
 		}

@@ -83,6 +83,7 @@ public class Student extends People {
             super.age = age;
         } else {
             System.out.println("!!! Invalid Age !!!");
+            super.age=0;
         }
     }
 
