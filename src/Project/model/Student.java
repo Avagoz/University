@@ -3,16 +3,13 @@ package Project.model;
 import Project.base.People;
 
 public class Student extends People {
-    public Student(){
 
-    }
-
-    public Student(String name, String surname,String gender, int age, Address address) {
+    public Student(String name, String surname, String gender, int age, Address address) {
         super.name = name;
         super.surname = surname;
         super.gender = gender;
         super.age = age;
-        this.address=address;
+        this.address = address;
 
     }
 
@@ -34,12 +31,12 @@ public class Student extends People {
 
     @Override
     public void setGender(String gender) {
-        if (gender.equals("M")){
-            super.gender=gender;
-        } else if(gender.equals("F")){
-            super.gender=gender;
-        }else {
-            super.gender="Invalid gender";
+        if (gender.equals("M")) {
+            super.gender = gender;
+        } else if (gender.equals("F")) {
+            super.gender = gender;
+        } else {
+            super.gender = "Invalid gender";
         }
     }
 
@@ -82,7 +79,7 @@ public class Student extends People {
             super.age = age;
         } else {
             System.out.println("!!! Invalid Age !!!");
-            super.age=0;
+            super.age = 0;
         }
     }
 
@@ -91,10 +88,10 @@ public class Student extends People {
         return "\n----------------------" +
                 "\nStudent's information" +
                 "\n----------------------" +
-                "\nName:" + getName()+
-                "\nSurname: " + getSurname()+
-                "\nGender: "+getGender()+
-                "\nAge: " + getAge()+
-                "\n"+ address.toString()+"\n";
+                "\nName:" + getName() +
+                "\nSurname: " + getSurname() +
+                "\nGender: " + getGender() +
+                "\nAge: " + getAge() +
+                "\n" + address.toString() + "\n";
     }
 }

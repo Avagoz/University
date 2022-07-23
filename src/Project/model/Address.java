@@ -62,12 +62,11 @@ public class Address {
     }
 
 
-
     public void displayAddress() {
         System.out.println("Address" +
                 "\n=======================" +
                 "\nApt " + getApt() + "; " + getHome() + ", "
-                + getStreet()+"\n"+getCity());
+                + getStreet() + "\n" + getCity());
     }
 
     @Override
@@ -75,7 +74,7 @@ public class Address {
         return "Address" +
                 "\n=======================" +
                 "\nApt " + getApt() + "; " + getHome() + ", "
-                + getStreet()+
-                "\n"+getCity();
+                + getStreet() +
+                "\n" + getCity();
     }
 }

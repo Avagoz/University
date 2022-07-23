@@ -28,9 +28,8 @@ public abstract class People {
     public abstract int getAge();
 
     public abstract void setAge(int age);
-    public abstract   String toString();
 
-
+    public abstract String toString();
 
 
 }

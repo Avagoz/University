@@ -1,7 +1,5 @@
 package Project.model;
 
-import Project.util.GroupListLoad;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +7,6 @@ public class Group {
 
     private int group;
     private int year;
-
 
 
     private int razmer;
@@ -24,15 +21,10 @@ public class Group {
 
     public Group(int group, int yearStart, int yearEnd, int year) {
         this.group = group;
-        this.yearStart=yearStart;
-        this.yearEnd=yearEnd;
+        this.yearStart = yearStart;
+        this.yearEnd = yearEnd;
         this.year = year;
-//        this.razmer = razmer;
         this.stud = new ArrayList<>();
-        for (int i = 0; i < razmer; i++) {
-            stud.add(new Student("...", "...","...", 19,new Address("...", "...", "...", 0)));
-
-        }
     }
 
     public List<Student> getStud() {
@@ -72,7 +64,7 @@ public class Group {
     }
 
     public void setGroup(int group) {
-        this.group=group;
+        this.group = group;
     }
 
     public int getYear() {
@@ -86,9 +78,9 @@ public class Group {
 
     public void addStud() {
         stud.add(new Student(stud.get(stud.size() - 1).getName(),
-                             stud.get(stud.size() - 1).getSurname(),
-                             stud.get(stud.size() - 1).getGender(),
-                             stud.get(stud.size() - 1).getAge(), stud.get(stud.size()-1).getAddress()));
+                stud.get(stud.size() - 1).getSurname(),
+                stud.get(stud.size() - 1).getGender(),
+                stud.get(stud.size() - 1).getAge(), stud.get(stud.size() - 1).getAddress()));
     }
 
 //-------------Метод удааления ученика и его адреса-------------------------------------------------
@@ -105,10 +97,10 @@ public class Group {
                 "\nGroup: " + getGroup() +
                 "\n==============" +
                 "\nYear: " + getYear() +
-                "\n=============="+
+                "\n==============" +
                 "\n yearStart=" + getYearStart() +
                 "\n yearEnd=" + getYearEnd() +
-                "\n"+  getStud().toString();
+                "\n" + getStud().toString();
 
     }
 }

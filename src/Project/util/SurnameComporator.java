@@ -18,6 +18,4 @@ public class SurnameComporator implements Comparator<People> {
         }
         return o1.getSurname().compareTo(o2.getSurname());
     }
-
-
 }

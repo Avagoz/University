@@ -8,31 +8,25 @@ import java.util.List;
 public class Methodist extends Personal {
     private List<Teacher> teachers;
 
-
-
-
-
-    public Methodist(){
-
-    }
-
-    public Methodist(String name, String surname, String gender, int age, int payday, Address address){
-        super.name=name;
-        super.surname=surname;
-        super.gender=gender;
-        super.age=age;
-        super.payday=payday;
-        super.address=address;
-        this.teachers=new ArrayList<>();
+    public Methodist(String name, String surname, String gender, int age, int payday, Address address) {
+        super.name = name;
+        super.surname = surname;
+        super.gender = gender;
+        super.age = age;
+        super.payday = payday;
+        super.address = address;
+        this.teachers = new ArrayList<>();
 
     }
 
     public List<Teacher> getTeachers() {
         return this.teachers;
     }
+
     public void setTeachers(List<Teacher> teachers) {
         this.teachers = teachers;
     }
+
     @Override
     public int getPayday() {
         return super.payday;
@@ -41,8 +35,9 @@ public class Methodist extends Personal {
     @Override
     public void setPayday(int payday) {
 
-        super.payday =payday;
+        super.payday = payday;
     }
+
     @Override
     public Address getAddress() {
         return super.address;
@@ -61,7 +56,7 @@ public class Methodist extends Personal {
     @Override
     public void setGender(String gender) {
 
-            super.gender=gender;
+        super.gender = gender;
 
     }
 
@@ -72,7 +67,7 @@ public class Methodist extends Personal {
 
     @Override
     public void setName(String name) {
-            super.name = name;
+        super.name = name;
 
     }
 
@@ -83,7 +78,7 @@ public class Methodist extends Personal {
 
     @Override
     public void setSurname(String surname) {
-        super.surname=surname;
+        super.surname = surname;
     }
 
     @Override
@@ -94,15 +89,16 @@ public class Methodist extends Personal {
     @Override
     public void setAge(int age) {
 
-            super.age = age;
+        super.age = age;
 
     }
+
     public void addTeach() {
         teachers.add(new Teacher(teachers.get(teachers.size() - 1).getName(),
                 teachers.get(teachers.size() - 1).getSurname(),
                 teachers.get(teachers.size() - 1).getGender(),
                 teachers.get(teachers.size() - 1).getAge(),
-                0,teachers.get(teachers.size()-1).getAddress())
+                0, teachers.get(teachers.size() - 1).getAddress())
         );
 
     }
@@ -112,7 +108,6 @@ public class Methodist extends Personal {
         teachers.remove(d);
         return teachers;
     }
-
 
 
     @Override
@@ -125,8 +120,8 @@ public class Methodist extends Personal {
                 "\nSurname: " + getSurname() +
                 "\nGender: " + getGender() +
                 "\nAge: " + getAge() +
-                "\n\nPayday: " + getPayday() + " BYN\n"+
-                "\n"+ getAddress()+
-                "\n"+ getTeachers().toString();
+                "\n\nPayday: " + getPayday() + " BYN\n" +
+                "\n" + getAddress() +
+                "\n" + getTeachers().toString();
     }
 }
