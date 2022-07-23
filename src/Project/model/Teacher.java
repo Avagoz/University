@@ -1,7 +1,6 @@
 package Project.model;
 
 
-import Project.base.Address;
 import Project.base.Personal;
 
 public class Teacher extends Personal {
@@ -11,14 +10,13 @@ public class Teacher extends Personal {
 
 
 
-	public Teacher(String name, String surname, String gender, int age, int hour){
+	public Teacher(String name, String surname, String gender, int age, int hour,Address address){
 		super.name=name;
 		super.surname=surname;
 		super.gender=gender;
 		super.age=age;
-//		this.index=getIndex();
 		super.payday=hour*15;
-		super.address=new Address("...", "...", "...", 0);
+		super.address=address;
 	}
 
 	@Override

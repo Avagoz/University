@@ -1,6 +1,6 @@
-package Project.service;
+package Project.test;
 
-import Project.base.Address;
+import Project.model.Address;
 import Project.model.Methodist;
 import Project.model.Teacher;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +18,7 @@ class TeacherTest {
         met = new ArrayList<>();
         met.add(new Methodist(" ", " ", " ", 0, 0, new Address("...", "...", "...", 0)));
         met.get(0).setTeachers(new ArrayList<>());
-        met.get(0).getTeachers().add(new Teacher("Olya", "Teach1", "F", 10, 10));
+        met.get(0).getTeachers().add(new Teacher("Olya", "Teach1", "F", 10, 10,new Address("...", "...", "...", 0)));
         met.get(0).getTeachers().get(0).setAge(-10);
 
     }

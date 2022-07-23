@@ -1,5 +1,7 @@
 package Project.model;
 
+import Project.util.GroupListLoad;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +17,20 @@ public class Group {
     private int yearEnd;
     private List<Student> stud;
 
+
     public Group() {
 
     }
 
-    public Group(int group, int yearStart, int yearEnd, int year, int razmer) {
+    public Group(int group, int yearStart, int yearEnd, int year) {
         this.group = group;
         this.yearStart=yearStart;
         this.yearEnd=yearEnd;
         this.year = year;
-        this.razmer = razmer;
+//        this.razmer = razmer;
         this.stud = new ArrayList<>();
         for (int i = 0; i < razmer; i++) {
-            stud.add(new Student("..."+i, "...","...", 19));
+            stud.add(new Student("...", "...","...", 19,new Address("...", "...", "...", 0)));
 
         }
     }
@@ -85,7 +88,7 @@ public class Group {
         stud.add(new Student(stud.get(stud.size() - 1).getName(),
                              stud.get(stud.size() - 1).getSurname(),
                              stud.get(stud.size() - 1).getGender(),
-                             stud.get(stud.size() - 1).getAge()));
+                             stud.get(stud.size() - 1).getAge(), stud.get(stud.size()-1).getAddress()));
     }
 
 //-------------Метод удааления ученика и его адреса-------------------------------------------------

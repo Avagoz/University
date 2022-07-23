@@ -1,0 +1,5 @@
+Denis Batrakov M 23 Minsk Street 9 55
+Pasha Petrovich M 5 Minsk Street5 9 55
+/
+Nick Rich M 5 Minsk Street6 9 55
+/

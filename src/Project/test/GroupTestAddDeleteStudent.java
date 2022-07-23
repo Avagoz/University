@@ -1,6 +1,6 @@
-package Project.service;
+package Project.test;
 
-import Project.base.Address;
+import Project.model.Address;
 import Project.model.Group;
 import Project.model.Student;
 import org.junit.jupiter.api.Assertions;
@@ -14,10 +14,8 @@ class GroupTestAddDeleteStudent {
     @BeforeEach
     void setUp() {
         groups = new ArrayList<>();
-        groups.add(new Group(0, 0, 0, 0, 0));
-        groups.get(0).getStud().add(new Student("...", "...", "...", 0));            //то условие создает новый массив
-        groups.get(0).getStud().get(groups.get(0).getStud().size() - 1)
-                .setAddress(new Address("...", "...", "...", 0));
+        groups.add(new Group(0, 0, 0, 0));
+        groups.get(0).getStud().add(new Student("...", "...", "...", 0,new Address("...", "...", "...", 0)));            //то условие создает новый массив
         groups.get(0).addStud();
         groups.get(0).addStud();
         groups.get(0).addStud();

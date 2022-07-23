@@ -1,6 +1,5 @@
 package Project.model;
 
-import Project.base.Address;
 import Project.base.Personal;
 
 import java.util.ArrayList;
@@ -103,7 +102,7 @@ public class Methodist extends Personal {
                 teachers.get(teachers.size() - 1).getSurname(),
                 teachers.get(teachers.size() - 1).getGender(),
                 teachers.get(teachers.size() - 1).getAge(),
-                0)
+                0,teachers.get(teachers.size()-1).getAddress())
         );
 
     }

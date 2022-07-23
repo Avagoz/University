@@ -1,4 +1,4 @@
-package Project.base;
+package Project.model;
 
 public class Address {
     private String city;

@@ -1,9 +1,10 @@
 package Project;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import Project.base.Address;
+import Project.model.Address;
 import Project.base.People;
 import Project.model.Group;
 import Project.model.Methodist;
@@ -13,7 +14,7 @@ import Project.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         List<People> people = new ArrayList<>();
         //Comporator People---------------------------------------------
         NameComporator nameComporator = new NameComporator();
@@ -28,28 +29,39 @@ public class Main {
         StartComporator startComporator = new StartComporator();
         EndComporator endComporator = new EndComporator();
         //--------------------------------------------------------------
-        ArrayList<Group> groups = new ArrayList<>();
-        groups.add(new Group(0, 0, 0, 0, 0));
-        groups.add(new Group(101, 2000, 2006, 3, 2));
-        groups.add(new Group(202, 2001, 2007, 3, 2));
-        groups.get(0).getStud().add(new Student("Denis", "Ivanov", "M", 20));
-        groups.get(1).getStud().add(new Student("Ivan", "Ivanov", "M", 19));
-        groups.get(1).getStud().add(new Student("Max", "Ivanov", "M", 19));
-        groups.get(2).getStud().add(new Student("Sveta", "Ivanov", "F", 19));
-        groups.get(2).getStud().add(new Student("Olya", "Ivanov", "F", 19));
-        List<Methodist> met = new ArrayList<>();
-        met.add(new Methodist(" ", " ", " ", 0, 0, new Address("...", "...", "...", 0)));
+        List<Group> groups = new ArrayList<>();
+//        groups.add(new Group(0, 0, 0, 0, 0));
+//        groups.add(new Group(101, 2000, 2006, 3, 2));
+//        groups.add(new Group(202, 2001, 2007, 3, 2));
+        GroupListLoad groupListLoad = new GroupListLoad();
+        StudentListLoad studentListLoad = new StudentListLoad();
+        MethodistListLoad methodistListLoad = new MethodistListLoad();
+        TeacherListLoad teacherListLoad = new TeacherListLoad();
+        GroupListSave groupListSave = new GroupListSave();
+        StudentListSave studentListSave = new StudentListSave();
+        MethodistListSave methodistListSave = new MethodistListSave();
+        TeacherListSave teacherListSave = new TeacherListSave();
+        groupListLoad.groupListLoad(groups);
+        studentListLoad.studentListLoad(groups);
 
-        met.get(0).setTeachers(new ArrayList<>());
-        met.get(0).getTeachers().add(new Teacher("Olya", "Teach1", "F", 59, 150));
-        met.get(met.size() - 1).getTeachers().get(met.get(met.size() - 1).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
-        met.get(0).getTeachers().add(new Teacher("Galya", "Teach2", "F", 19, 225));
-        met.get(met.size() - 1).getTeachers().get(met.get(met.size() - 1).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
-        met.get(0).getTeachers().add(new Teacher("Albert", "Teach3", "M", 68, 180));
-        met.get(met.size() - 1).getTeachers().get(met.get(met.size() - 1).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
+
+//        groups.get(0).getStud().add(new Student("Denis", "Ivanov", "M", 20,new Address("...", "...", "...", 25)));
+//        groups.get(1).getStud().add(new Student("Ivan", "Ivanov", "M", 19,new Address("...", "...", "...", 25)));
+//        groups.get(1).getStud().add(new Student("Max", "Ivanov", "M", 19,new Address("...", "...", "...", 25)));
+//        groups.get(2).getStud().add(new Student("Sveta", "Ivanov", "F", 19,new Address("...", "...", "...", 25)));
+//        groups.get(2).getStud().add(new Student("Olya", "Ivanov", "F", 19,new Address("...", "...", "...", 25)));
+        List<Methodist> met = new ArrayList<>();
+
+      //  met.add(new Methodist(".", ".", ".", 0, 0, new Address("...", "...", "...", 0)));
+        methodistListLoad.methodistListLoad(met);
+        teacherListLoad.teacherListLoad(met);
+
+
+
+
 
         ToMethodist<Methodist, Teacher> metConvert = (teacher) -> new Methodist(teacher.getName(), teacher.getSurname(),
-                teacher.getGender(), teacher.getAge(), teacher.getPayday() * 2, teacher.getAddress());
+                teacher.getGender(), teacher.getAge(), 500+teacher.getPayday() * 2, teacher.getAddress());
         Scanner scan = new Scanner(System.in);
         //--------------------------------------------------------------------------------------------------------------
         System.out.println("\n=============================\n" +
@@ -86,7 +98,7 @@ public class Main {
                                 System.out.println("Invalid number, Try Again");
 
                             } else if (d == 0) {
-                                groups.add(0, new Group(0, 0, 0, 0, 0));
+                                groups.add(0, new Group(0, 0, 0, 0));
                                 groups.get(0).getStud().addAll(groups.get(1).getStud());
                                 groups.remove(1);
 
@@ -101,8 +113,7 @@ public class Main {
                             groups.add(new Group(groups.get(groups.size() - 1).getGroup(),
                                     groups.get(groups.size() - 1).getYearStart(),
                                     groups.get(groups.size() - 1).getYearEnd(),
-                                    groups.get(groups.size() - 1).getYear(),
-                                    groups.get(groups.size() - 1).getRazmer()));
+                                    groups.get(groups.size() - 1).getYear()));
 
                             System.out.println("""
                                     ==================
@@ -152,7 +163,6 @@ public class Main {
                                     } else {
                                         groups.get(z).deleteStud(d);
 
-
                                         groups.get(z).getStud().forEach(System.out::println);
 
 
@@ -169,9 +179,8 @@ public class Main {
                                     break;
                                 case "Add":
                                     if (groups.get(z).getStud().size() == 0) {                                //Еcли в массиве не остается учеников,
-                                        groups.get(z).getStud().add(new Student("...", "...", "...", 0));            //то условие создает новый массив
-                                        groups.get(z).getStud().get(groups.get(z).getStud().size() - 1)
-                                                .setAddress(new Address("...", "...", "...", 0));
+                                        groups.get(z).getStud().add(new Student("...", "...", "...", 0,new Address("...", "...", "...", 0)));            //то условие создает новый массив
+
                                         groups.get(z).addStud();
                                         groups.get(z).deleteStud(0);
                                     } else {
@@ -262,8 +271,7 @@ public class Main {
                                                 break;
                                             }
                                             if (met.get(k).getTeachers().size() == 0) {                                //Еcли в массиве не остается Учителя,
-                                                met.get(k).getTeachers().add(new Teacher("...", "...", "M", 0, 0));   //то условие создает новый массив
-                                                met.get(k).getTeachers().get(met.get(k).getTeachers().size() - 1).setAddress(new Address("...", "...", "...", 0));
+                                                met.get(k).getTeachers().add(new Teacher("...", "...", "M", 0, 0,new Address("...", "...", "...", 0)));   //то условие создает новый массив
                                                 met.get(k).addTeach();
                                                 met.get(k).deleteTeach(0);
                                             } else {
@@ -333,7 +341,7 @@ public class Main {
                                             System.out.println("Какого Методиста уволить?");
                                             int d = Integer.parseInt(scan.nextLine());
                                             if (d == 0) {
-                                                met.add(0, new Methodist(" ", " ", " ", 0, 0, new Address("...", "...", "...", 0)));
+                                                met.add(0, new Methodist(".", ".", ".", 0, 0, new Address("...", "...", "...", 0)));
                                                 met.get(0).getTeachers().addAll(met.get(1).getTeachers());
                                                 met.remove(1);
                                             } else if (d > met.size() - 1 || d < 0) {
@@ -573,6 +581,13 @@ public class Main {
                         }
                     }
                     break;
+                case "Save":
+                    groupListSave.groupListSave(groups);
+                    studentListSave.studentListSave(groups);
+                    methodistListSave.methodistListSave(met);
+                    teacherListSave.teacherListSave(met);
+                    System.out.println("\nДанные сохранены\n");
+                    break ;
                 case "Exit":
                     System.out.println("Завершение работы");
                     break labelProject;

@@ -1,6 +1,6 @@
 package Project.base;
 
-import Project.base.Address;
+import Project.model.Address;
 
 public abstract class People {
     protected String name;

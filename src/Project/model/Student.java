@@ -1,6 +1,5 @@
 package Project.model;
 
-import Project.base.Address;
 import Project.base.People;
 
 public class Student extends People {
@@ -8,12 +7,12 @@ public class Student extends People {
 
     }
 
-    public Student(String name, String surname,String gender, int age) {
+    public Student(String name, String surname,String gender, int age, Address address) {
         super.name = name;
         super.surname = surname;
         super.gender = gender;
         super.age = age;
-        this.address=new Address("...", "...", "...", 0);
+        this.address=address;
 
     }
 
